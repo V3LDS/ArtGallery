@@ -18,7 +18,7 @@
 
     <div id="uploadForm">
         <h2>Upload Your Art</h2>
-        <form name="upload-art" netlify>
+        <form name="upload-art" method="POST" data-netlify="true" enctype="multipart/form-data">
             <p>
                 <label for="file">Choose file to upload:</label>
                 <input type="file" id="file" name="file" accept="image/*" required>
