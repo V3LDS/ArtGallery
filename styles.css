@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+}
+
+#title {
+    text-align: center;
+    padding: 50px 0;
+}
+
+#title h1 {
+    font-size: 3em;
+    color: #fff;
+    margin: 0;
+}
+
+#title p {
+    font-size: 1em;
+    color: #aaa;
+    margin: 10px 0 0;
+}
+
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.artwork {
+    margin: 10px;
+    text-align: center;
+}
+
+.artwork img {
+    max-width: 300px; /* Increased size */
+    max-height: 300px; /* Increased size */
+    border: 1px solid #fff;
+    /* Removed grayscale filter */
+}
+
+#uploadForm {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 300px;
+}
+
+#uploadForm form {
+    display: flex;
+    flex-direction: column;
+}
+
+#uploadForm input, #uploadForm button {
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+#uploadForm button {
+    cursor: pointer;
+}
+
+#uploadForm button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Background Animation */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('image1.jpg') no-repeat center center fixed;
+    background-size: cover;
+    animation: cycleImages 20s infinite;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+@keyframes cycleImages {
+    0% { background-image: url('image1.jpg'); }
+    25% { background-image: url('image2.jpg'); }
+    50% { background-image: url('image3.jpg'); }
+    75% { background-image: url('image4.jpg'); }
+    100% { background-image: url('image1.jpg'); }
+}
