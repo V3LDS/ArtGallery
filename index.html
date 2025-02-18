@@ -13,14 +13,23 @@
     </div>
     
     <div id="gallery">
+        <!-- Here's where images will be displayed -->
     </div>
 
     <div id="uploadForm">
         <h2>Upload Your Art</h2>
-        <form id="uploadForm">
-            <input type="file" id="artFile" accept="image/*" required>
-            <input type="text" id="artistName" placeholder="Your Name" required>
-            <button type="submit">Upload</button>
+        <form name="upload-art" netlify>
+            <p>
+                <label for="file">Choose file to upload:</label>
+                <input type="file" id="file" name="file" accept="image/*" required>
+            </p>
+            <p>
+                <label for="artistName">Your Name:</label>
+                <input type="text" id="artistName" name="artistName" required>
+            </p>
+            <p>
+                <button type="submit">Upload</button>
+            </p>
         </form>
     </div>
 
