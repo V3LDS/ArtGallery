@@ -2,23 +2,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
     document.forms['upload-art'].addEventListener("submit", event => {
         event.preventDefault();
         const result = document.querySelector(".result");
-        const gallery = document.getElementById('gallery');
         
-        fetch("/", {
+        fetch("/api/uploadImage", {
             method: "POST",
             body: new FormData(event.target)
         })
-        .then(() => {
-            result.innerText = "Upload Successful! Please refresh to see your art in the gallery.";
-            
-            // This part simulates adding an image. In reality, you would need to manually update or use a script to fetch new images.
-            const imgElement = document.createElement('img');
-            imgElement.src = 'assets/uploads/placeholder.jpg'; // Use a placeholder or last known image URL
-            imgElement.alt = 'New Artwork';
-            gallery.appendChild(imgElement);
+        .then(response => response.json())
+        .then(data => {
+            result.innerText = data.message;
+            // Now, instead of adding a placeholder, we dynamically update the gallery
+            updateGallery(data.path);
         })
         .catch(error => {
             result.innerText = `Upload Failed: ${error}`;
         });
     });
 });
+
+function updateGallery(imagePath) {
+    const gallery = document.getElementById('gallery');
+    const imgElement = document.createElement('img');
+    imgElement.src = imagePath; // This should be relative to your site's root
+    imgElement.alt = 'New Artwork';
+    imgElement.classList.add('artwork');
+    gallery.appendChild(imgElement);
+}
