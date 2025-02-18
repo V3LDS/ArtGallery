@@ -18,19 +18,14 @@
 
     <div id="uploadForm">
         <h2>Upload Your Art</h2>
-        <form name="upload-art" method="POST" data-netlify="true" enctype="multipart/form-data">
+        <form id="upload-art" enctype="multipart/form-data" action="/api/uploadImage" method="POST">
             <p>
                 <label for="file">Choose file to upload:</label>
-                <input type="file" id="file" name="file" accept="image/*" required>
-            </p>
-            <p>
-                <label for="artistName">Your Name:</label>
-                <input type="text" id="artistName" name="artistName" required>
+                <input type="file" id="file" name="image" accept="image/*" required>
             </p>
             <p>
                 <button type="submit">Upload</button>
             </p>
-            <input type="hidden" name="form-name" value="upload-art" />
         </form>
         <div class="result"></div>
     </div>
